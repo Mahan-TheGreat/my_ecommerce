@@ -35,7 +35,7 @@ def test_mongo_write():
     db = client.shop_db
     products_collection = db.products
 
-    test_document = {'name': 'Test Product', 'price': 100}
+    test_document = {'name': 'Test Product1', 'price': 100}
     insert_result = products_collection.insert_one(test_document)
 
     # Verify the document exists
