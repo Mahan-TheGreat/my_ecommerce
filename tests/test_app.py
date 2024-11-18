@@ -40,7 +40,7 @@ def test_mongo_write():
 
     # Verify the document exists
     retrieved_document = products_collection.find_one({'_id': insert_result.inserted_id})
-    assert retrieved_document['name'] == 'Test Product'
+    assert retrieved_document['name'] == 'Test Product1'
     assert retrieved_document['price'] == 100
 
     # Cleanup
