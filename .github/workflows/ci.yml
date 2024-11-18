@@ -36,12 +36,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Check OpenSSL version
+      run: |
+        x  xx xpython -c "import ssl; print(ssl.OPENSSL_VERSION)"
+
     # Step 4: Run tests
     - name: Run tests
       env:
         MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}  # Use the MongoDB username secret
         MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}  # Use the MongoDB password secret
-        MONGODB_URI: "mongodb+srv://${{ secrets.MONGODB_USERNAME}}:${{ secrets.MONGODB_PASSWORD}}@devops.nxb7m.mongodb.net/?retryWrites=true&w=majority&appName=DevOps"
       run: |
 
         # Run tests
