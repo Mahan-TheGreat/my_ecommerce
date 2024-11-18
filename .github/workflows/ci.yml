@@ -18,7 +18,6 @@ jobs:
         image: mongo:latest
         ports:
           - 27017:27017
-        options: --bind_ip_all
 
     steps:
     # Step 1: Checkout the repository
