@@ -24,12 +24,12 @@ def mongodb_client():
     yield db
     client.close()
 
-//Test 1: Route Access Test
+#Test 1: Route Access Test
 def test_home_route(client):
     response = client.get('/')
     assert response.status_code == 200
 
-//Test 1: Route Access Test
+#Test 1: Route Access Test
 def test_products_route(client):
     response = client.get('/products')
     assert response.status_code == 200
