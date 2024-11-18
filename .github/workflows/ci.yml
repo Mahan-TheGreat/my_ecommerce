@@ -41,9 +41,8 @@ jobs:
       env:
         MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}  # Use the MongoDB username secret
         MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}  # Use the MongoDB password secret
+        MONGODB_URI: "mongodb+srv://${{ secrets.MONGODB_USERNAME}}:${{ secrets.MONGODB_PASSWORD}}@devops.nxb7m.mongodb.net/?retryWrites=true&w=majority&appName=DevOps"
       run: |
-        # Construct MongoDB URI dynamically
-        export MONGODB_URI="mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@devops.nxb7m.mongodb.net/?retryWrites=true&w=majority&appName=DevOps"
-        
+
         # Run tests
         pytest
