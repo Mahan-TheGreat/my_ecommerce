@@ -38,7 +38,7 @@ jobs:
 
     - name: Check OpenSSL version
       run: |
-        x  xx xpython -c "import ssl; print(ssl.OPENSSL_VERSION)"
+          python -c "import ssl; print(ssl.OPENSSL_VERSION)"
 
     # Step 4: Run tests
     - name: Run tests
