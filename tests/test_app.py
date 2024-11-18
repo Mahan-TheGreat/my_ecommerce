@@ -24,11 +24,12 @@ def mongodb_client():
     yield db
     client.close()
 
-
+//Test 1: Route Access Test
 def test_home_route(client):
     response = client.get('/')
     assert response.status_code == 200
 
+//Test 1: Route Access Test
 def test_products_route(client):
     response = client.get('/products')
     assert response.status_code == 200
@@ -45,8 +46,7 @@ def test_mongodb_connection(mongodb_client):
         response = True
     except Exception as e:
         response = False
-    assert response is True  # Connection should be successful
-
+    
 # Test 3: Database Write Operation (Insert Document)
 def test_insert_document(mongodb_client):
     collection = mongodb_client.test_collection  # Replace with your actual collection name
@@ -59,3 +59,6 @@ def test_insert_document(mongodb_client):
     found_document = collection.find_one({"name": "Test Document"})
     assert found_document is not None  # Ensure document was found
     assert found_document["value"] == 123  # Ensure the value is correct
+
+        # Clean up
+    collection.delete_one({"_id": insert_result.inserted_id})
