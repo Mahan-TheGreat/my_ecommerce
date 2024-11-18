@@ -34,6 +34,10 @@ def test_mongo_connection():
 
 
 def test_mongo_write():
+    client = MongoClient(MONGODB_URI)
+    db = client.shop_db
+    products_collection = db.products
+
     test_document = {'name': 'Test Product', 'price': 100}
     insert_result = products_collection.insert_one(test_document)
 
