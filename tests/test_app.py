@@ -10,6 +10,7 @@ from app import products_collection
 
 MONGODB_USERNAME = os.getenv('MONGODB_USERNAME')
 MONGODB_PASSWORD = os.getenv('MONGODB_PASSWORD')
+MONGODB_URI = os.getenv('MONGODB_URI')
 
 
 @pytest.fixture
@@ -27,7 +28,7 @@ def test_products_route(client):
 
 
 def test_mongo_connection():
-    client = MongoClient(f'mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@devops.nxb7m.mongodb.net/?retryWrites=true&w=majority&appName=DevOps')
+    client = MongoClient(MONGODB_URI)
     result = client.admin.command('ping')
     assert result['ok'] == 1.0
 

@@ -2,14 +2,14 @@ from flask import Flask, render_template
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
+import certifi
 load_dotenv()
 app = Flask(__name__)
 
 # MongoDB connection
-MONGODB_USERNAME = os.getenv('MONGODB_USERNAME')
-MONGODB_PASSWORD = os.getenv('MONGODB_PASSWORD')
+MONGODB_URI = os.getenv('MONGODB_URI')
 
-client = MongoClient(f'mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@devops.nxb7m.mongodb.net/?retryWrites=true&w=majority&appName=DevOps')
+client = MongoClient(MONGODB_URI)
 db = client.shop_db
 products_collection = db.products
 
