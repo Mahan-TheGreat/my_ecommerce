@@ -7,9 +7,6 @@ from app import app
 from pymongo import MongoClient
 from app import products_collection
 
-
-MONGODB_USERNAME = os.getenv('MONGODB_USERNAME')
-MONGODB_PASSWORD = os.getenv('MONGODB_PASSWORD')
 MONGODB_URI = os.getenv('MONGODB_URI')
 
 
